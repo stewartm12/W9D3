@@ -9,15 +9,30 @@ class View {
   bindEvents() {
     this.$el.on('click', "li", (e) => {
       let $li = $(e.currentTarget);
-      this.game.playMove($li.data('pos'));
       $li.text(this.game.currentPlayer);
       this.makeMove($li);
+      this.game.playMove($li.data('pos'));
+      if (this.game.isOver()) {
+        const $winnerMsg = $('<h2>');
+        if (this.game.winner()) {
+          $winnerMsg.text(`You win, ${this.game.winner()}`);
+          this.$el.off('click');
+          $(`.${this.game.winner()}`).addClass('winner');
+          $(`.${this.game.winner()}`).removeClass(`${this.game.winner()}`)
+          $(`.${this.game.currentPlayer}`).addClass('loser');
+          $(`.${this.game.currentPlayer}`).removeClass(`${this.game.currentPlayer}`);
+          $('li').addClass('over')
+        } else {
+          $winnerMsg.text('Its a draw losers')
+        }
+        this.$el.append($winnerMsg);
+      }
       // console.log(this.game.currentPlayer);
     });
   }
 
   makeMove($square) {
-    $square.addClass('filled');
+    $square.addClass(`${this.game.currentPlayer}`);
   }
 
   setupBoard() {
