@@ -9,4 +9,17 @@ li {
   height: 100px;
   border: 2px solid black;
   list-style: none;
+  background-color: gray;
+}
+
+li:hover {
+  background-color: yellow;
+}
+
+li.filled {
+  background-color: blue;
+  text-align: center;
+  color: white;
+  font-size: 75px;
+  /* padding: 10px 0px; */
 }
