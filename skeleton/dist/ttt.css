@@ -1,7 +1,13 @@
+body {
+  text-align: center;
+}
+
 ul {
+  margin:auto;
   display: flex;
   flex-wrap: wrap;
   width: 330px;
+  align-self: center;
 }
 
 li {
@@ -9,4 +15,42 @@ li {
   height: 100px;
   border: 2px solid black;
   list-style: none;
+  background-color: gray;
 }
+
+li:hover {
+  background-color: yellow;
+}
+
+li.x, li.o {
+  background-color: blue;
+  text-align: center;
+  color: white;
+  font-size: 75px;
+  /* padding: 10px 0px; */
+}
+
+.over {
+  background-color: white
+}
+
+.winner {
+  background-color:green;
+  font-size: 75px;
+  color: white;
+}
+
+.loser {
+  background-color: white;
+  color: red;
+  font-size: 75px;
+
+}
+.over:hover {
+  background-color: white;
+}
+
+.winner:hover {
+  background-color: green;
+}
+
